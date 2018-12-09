@@ -1,0 +1,5 @@
+﻿  FBullCowGame.cpp
+  main.cpp
+c:\users\yashu\source\repos\solution\bullscowsgame\main.cpp(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
+  BullsCowsGame.vcxproj -> C:\Users\yashu\source\repos\Solution\Debug\BullsCowsGame.exe
