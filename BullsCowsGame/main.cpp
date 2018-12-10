@@ -27,6 +27,8 @@ void PlayGame() {
 	// TODO change to while loop 
 	for (int32 count = 0; count < MaxTries; count++) {
 		FText guess = GetGuess();
+
+		EGuessStatus Status = BCGame.IsValidGuess(guess);
 		FBullCowCount BullCowCount = BCGame.SubmitGuess(guess);
 
 		std::cout << "Bulls: " << BullCowCount.Bulls << " Cows: " << BullCowCount.Cows << "\n\n";
@@ -52,13 +54,16 @@ FText GetGuess() {
 	FText guess = "";
 	std::cout << "Try "<<CurrentTry<<". Enter your guess: ";
 	std::getline(std::cin,guess);
+	/*if (guess.length() != BCGame.GetHiddenWordLength()) {
+		std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word guess. \n\n";
+		return GetGuess();
+	}*/
 	return guess;
 }
 
 void PrintIntro() {
-	constexpr int32 WORD_LENGTH = 5;
 	std::cout << "\nWelcome to Bulls & Cows, word game!\n";
 	std::cout << "An isogram is a word without any repeating letter.\n\n";
-	std::cout << "Can you guess the " << WORD_LENGTH << " letter isogram word?\n\n";
+	std::cout << "Can you guess the " << BCGame.GetHiddenWordLength() << " letter isogram word?\n\n";
 	return;
 }
