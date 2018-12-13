@@ -1,4 +1,6 @@
-﻿  main.cpp
+﻿  FBullCowGame.cpp
+  main.cpp
 c:\users\yashu\source\repos\solution\bullscowsgame\main.cpp(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-c:\users\yashu\source\repos\solution\bullscowsgame\main.cpp(71): warning C4715: 'GetValidGuess': not all control paths return a value
+  Generating Code...
+c:\users\yashu\source\repos\solution\bullscowsgame\main.cpp(83): warning C4715: 'GetValidGuess': not all control paths return a value
   BullsCowsGame.vcxproj -> C:\Users\yashu\source\repos\Solution\Debug\BullsCowsGame.exe
