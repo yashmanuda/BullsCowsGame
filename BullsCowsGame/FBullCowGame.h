@@ -36,7 +36,6 @@ public:
 private:
 	bool bIsGameWon;
 	int32 MyCurrentTry;
-	int32 MyMaxTries;
 	FString MyHiddenWord;
 	bool IsIsogram(FString) const;
 	bool IsLowercase(FString) const;

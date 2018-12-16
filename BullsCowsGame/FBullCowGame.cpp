@@ -1,20 +1,23 @@
 #include "FBullCowGame.h"
-
+#pragma once
 FBullCowGame::FBullCowGame() { Reset(); }
-int32 FBullCowGame::GetMaxTries() const { return MyMaxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
 int32 FBullCowGame::GetHiddenWordLength() const { return MyHiddenWord.length(); }
 
 void FBullCowGame::Reset() {
-	constexpr int32 MAX_TRIES = 5;
 	const FString HIDDEN_WORD = "planets";
 	
 	MyHiddenWord = HIDDEN_WORD;
-	MyMaxTries = MAX_TRIES;
 	MyCurrentTry = 1;
 	bIsGameWon = false;
 	return;
 }
+
+int32 FBullCowGame::GetMaxTries() const { 
+	TMap<int32, int32> WordLenthToMaxTries{ {3,4},{4,7},{5,10},{6,14},{7,20} };
+	return WordLenthToMaxTries[GetHiddenWordLength()];
+}
+
 
 bool FBullCowGame::IsGameWon() const {
 	return bIsGameWon;

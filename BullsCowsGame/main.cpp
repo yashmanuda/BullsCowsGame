@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "FBullCowGame.h";
-
+#pragma once
 using FText = std::string;
 using int32 = int;
 
@@ -21,18 +21,17 @@ int main() {
 	return 0;
 }
 
+// plays single game to completion
 void PlayGame() {
 	
 	BCGame.Reset();
 	int32 MaxTries = BCGame.GetMaxTries();
-	// TODO change to while loop 
 	while (!BCGame.IsGameWon() && (BCGame.GetCurrentTry() <= MaxTries)) {
 		FText guess = GetValidGuess();
 		FBullCowCount BullCowCount = BCGame.SubmitGuess(guess);
 		std::cout << "Bulls: " << BullCowCount.Bulls << " Cows: " << BullCowCount.Cows << "\n\n";
 	}
 	PrintGameSummary();
-	// TODO summarise the game	
 	return;
 }
 
@@ -61,7 +60,7 @@ FText GetValidGuess() {
 	do {
 		int32 CurrentTry = BCGame.GetCurrentTry();
 		FText guess = "";
-		std::cout << "Try " << CurrentTry << ". Enter your guess: ";
+		std::cout << "Try " << CurrentTry << "/"<<BCGame.GetMaxTries() << ". Enter your guess: ";
 		std::getline(std::cin, guess);
 
 		Status = BCGame.IsValidGuess(guess);
